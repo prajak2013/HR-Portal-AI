@@ -1,19 +1,13 @@
-import { NavLink } from "react-router-dom";
-import DashboardLayout from "../layouts/DashboardLayout";
+import WelcomeCard from "../features/dashboard/components/WelcomeCard";
 
 export default function Dashboard() {
-    return (
-        <DashboardLayout>
-            <NavLink
-                to="/dashboard"
-                className={({ isActive }) =>
-                    isActive
-                        ? "bg-blue-600 text-white"
-                        : "text-gray-700 hover:bg-gray-100"
-                }
-            >
-                Dashboard
-            </NavLink>
-        </DashboardLayout>
-    );
+  return (
+    <div className="space-y-6">
+      <WelcomeCard />
+
+      <h2 className="text-2xl font-bold">
+        Dashboard
+      </h2>
+    </div>
+  );
 }

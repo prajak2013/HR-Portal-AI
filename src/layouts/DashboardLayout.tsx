@@ -1,22 +1,18 @@
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { Outlet } from "react-router-dom";
+import Sidebar from "../components/layouts/sidebar/Sidebar";
+import Header from "../components/layouts/Header";
+
+export default function DashboardLayout() {
   return (
-    <div className="flex min-h-screen">
-      <div className="w-64 bg-gray-900 text-white p-4">
-        Sidebar
-      </div>
+    <div className="flex min-h-screen bg-gray-100">
+      <Sidebar />
 
-      <div className="flex-1">
-        <div className="h-16 border-b flex items-center px-6">
-          Header
-        </div>
+      <div className="flex flex-1 flex-col">
+        <Header />
 
-        <div className="p-6 bg-gray-50 min-h-screen">
-          {children}
-        </div>
+        <main className="flex-1 p-6">
+          <Outlet />
+        </main>
       </div>
     </div>
   );
