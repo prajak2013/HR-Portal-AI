@@ -21,3 +21,9 @@ export interface Announcement {
   title: string;
   description: string;
 }
+
+export interface Employee {
+  id: number;
+  name: string;
+  designation: string;
+}
