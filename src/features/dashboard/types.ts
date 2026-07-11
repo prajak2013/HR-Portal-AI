@@ -27,3 +27,21 @@ export interface Employee {
   name: string;
   designation: string;
 }
+
+
+import type { LucideIcon } from "lucide-react";
+
+export interface Employee {
+  id: number;
+  name: string;
+  designation: string;
+}
+
+export interface DashboardStat {
+  id: number;
+  title: string;
+  value: number;
+  subtitle: string;
+  icon: LucideIcon;
+  color: string;
+}
