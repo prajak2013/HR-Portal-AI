@@ -1,6 +1,7 @@
-import HeaderSearch from "./HeaderSearch";
 import HeaderActions from "./HeaderActions";
 import HeaderBreadcrumb from "./HeaderBreadcrumb";
+import HeaderSearch from "./HeaderSearch";
+
 
 export default function Header() {
   return (
@@ -8,7 +9,7 @@ export default function Header() {
       <HeaderBreadcrumb />
 
       <div className="flex items-center gap-4">
-        <HeaderSearch />
+        <HeaderSearch/>
         <HeaderActions />
       </div>
     </header>
