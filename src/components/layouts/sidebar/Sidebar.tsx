@@ -1,13 +1,46 @@
+import SidebarLogo from "./SidebarLogo";
+import SidebarItem from "./SidebarItem";
+import SidebarFooter from "./SidebarFooter";
+import SidebarToggle from "./SidebarToggle";
 
+import { sidebarItems } from "./sidebar.config";
+import { sidebarClasses } from "./sidebar.styles";
 
-const Sidebar = () => {
+import { useSidebarStore } from "../../../store/sidebarStore";
+
+const  Sidebar = ()  =>{
+  const { collapsed, toggle } = useSidebarStore();
+
   return (
-    <aside className="flex h-screen w-64 flex-col bg-gray-900">
-      <div className="border-b border-gray-700 p-6">
-        <h1 className="text-2xl font-bold text-white">
-          HR
-        </h1>
-      </div>
+    <aside
+      className={`
+        ${sidebarClasses.container}
+        ${collapsed ? sidebarClasses.collapsed : sidebarClasses.expanded}
+        relative
+      `}
+    >
+      {/* Collapse / Expand Button */}
+      <SidebarToggle
+        collapsed={collapsed}
+        onToggle={toggle}
+      />
+
+      {/* Logo */}
+      <SidebarLogo collapsed={collapsed} />
+
+      {/* Navigation */}
+      <nav className={sidebarClasses.nav}>
+        {sidebarItems.map((item) => (
+          <SidebarItem
+            key={item.id}
+            item={item}
+            collapsed={collapsed}
+          />
+        ))}
+      </nav>
+
+      {/* Footer */}
+      <SidebarFooter collapsed={collapsed} />
     </aside>
   );
 }
