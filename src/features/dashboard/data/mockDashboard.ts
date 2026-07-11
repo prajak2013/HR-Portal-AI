@@ -51,7 +51,7 @@ import {
   FileClock,
 } from "lucide-react";
 
-import type { DashboardStat } from "../types";
+import type { DashboardStat, Holiday } from "../types";
 
 export const dashboardStats: DashboardStat[] = [
   {
@@ -88,4 +88,39 @@ export const dashboardStats: DashboardStat[] = [
   },
 ];
 
+export const holidays: Holiday[] = [
+  {
+    id: 1,
+    title: "Independence Day",
+    date: "15 Aug 2026",
+  },
+  {
+    id: 2,
+    title: "Ganesh Chaturthi",
+    date: "07 Sep 2026",
+  },
+  {
+    id: 3,
+    title: "Diwali",
+    date: "09 Nov 2026",
+  },
+];
+
+export const announcements = [
+  {
+    id: 1,
+    title: "Company Town Hall",
+    description: "Friday at 4 PM",
+  },
+  {
+    id: 2,
+    title: "Leave Policy Updated",
+    description: "Check HR Policies",
+  },
+  {
+    id: 3,
+    title: "Insurance Renewal",
+    description: "Submit documents",
+  },
+];
 

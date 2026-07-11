@@ -12,7 +12,7 @@ export interface InsuranceInfo {
 
 export interface Holiday {
   id: number;
-  name: string;
+  title: string;
   date: string;
 }
 
@@ -44,4 +44,16 @@ export interface DashboardStat {
   subtitle: string;
   icon: LucideIcon;
   color: string;
+}
+
+export interface LeaveChartData {
+  month: string;
+  leaves: number;
+}
+export interface DashboardResponse {
+  employee: Employee;
+  stats: DashboardStat[];
+  holidays: Holiday[];
+  announcements: Announcement[];
+  leaveChart: LeaveChartData[];
 }
