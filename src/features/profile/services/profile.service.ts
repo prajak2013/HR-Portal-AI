@@ -1,12 +1,13 @@
 import { employeeProfile } from "../data/profile.mock";
-
 import type { EmployeeProfile } from "../types";
+
+let profileData: EmployeeProfile = { ...employeeProfile };
 
 class ProfileService {
   async getProfile(): Promise<EmployeeProfile> {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(employeeProfile);
+        resolve(profileData);
       }, 800);
     });
   }
@@ -16,7 +17,8 @@ class ProfileService {
   ): Promise<EmployeeProfile> {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(profile);
+        profileData = { ...profile };
+        resolve(profileData);
       }, 1000);
     });
   }

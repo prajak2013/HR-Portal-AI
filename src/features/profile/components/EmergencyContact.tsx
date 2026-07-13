@@ -6,11 +6,12 @@ import { FormField, SelectInput, TextInput } from "../../../components/common/fo
 interface EmergencyContactProps {
     register: UseFormRegister<ProfileFormValues>;
     errors: FieldErrors<ProfileFormValues>;
+    isEditing: boolean;
 }
 
 export default function EmergencyContact({
     register,
-    errors,
+    errors, isEditing
 }: EmergencyContactProps) {
     return (
         <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -24,6 +25,7 @@ export default function EmergencyContact({
                     required
                 >
                     <TextInput
+                        disabled={!isEditing}
                         placeholder="Enter contact name"
                         {...register("emergencyName")}
                         error={errors.emergencyName?.message}
@@ -35,6 +37,7 @@ export default function EmergencyContact({
                     required
                 >
                     <TextInput
+                        disabled={!isEditing}
                         type="tel"
                         placeholder="Enter contact number"
                         {...register("emergencyPhone")}
@@ -47,6 +50,7 @@ export default function EmergencyContact({
                     required
                 >
                     <SelectInput
+                        disabled={!isEditing}
                         options={relationshipOptions}
                         {...register("relationship")}
                         error={errors.relationship?.message}

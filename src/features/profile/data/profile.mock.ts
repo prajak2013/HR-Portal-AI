@@ -13,7 +13,7 @@ export const employeeProfile: EmployeeProfile = {
 
   phone: "+91 9876543210",
 
-  designation: "QA Automation Engineer",
+  designation: "Frontend Engineer",
 
   department: "Engineering",
 

@@ -27,5 +27,6 @@ export function useProfile() {
   return {
     profile,
     loading,
+    setProfile,
   };
 }
