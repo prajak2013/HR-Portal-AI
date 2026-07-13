@@ -1,5 +1,21 @@
-const Leaves = () => {
-  return <h1>Leaves</h1>;
-};
+import { LeaveBalance } from "../features/leaves/components";
 
-export default Leaves;
+import { useLeaves } from "../features/leaves/hooks/useLeaves";
+
+export default function Leaves() {
+  const { balance, loading } = useLeaves();
+
+  if (loading || !balance) {
+    return (
+      <div className="text-center text-slate-500">
+        Loading leave information...
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      <LeaveBalance balance={balance} />
+    </div>
+  );
+}
