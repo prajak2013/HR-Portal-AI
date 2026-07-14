@@ -1,37 +1,53 @@
+import { forwardRef } from "react";
 import type { TextareaHTMLAttributes } from "react";
 
 import ErrorMessage from "./ErrorMessage";
+
 interface TextAreaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string;
+  label?: string;
 }
 
-export default function TextArea({
-  error,
-  className = "",
-  ...props
-}: TextAreaProps) {
-  return (
-    <>
-      <textarea
-        {...props}
-        className={`
-          w-full
-          rounded-lg
-          border
-          px-4
-          py-3
-          outline-none
-          transition
-          focus:border-blue-500
-          focus:ring-2
-          focus:ring-blue-200
-          ${error ? "border-red-500" : "border-slate-300"}
-          ${className}
-        `}
-      />
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ error, label, className = "", disabled, ...props }, ref) => {
+    return (
+      <div className="w-full">
+        {label && (
+          <label className="text-sm font-medium text-slate-700">
+            {label}
+          </label>
+        )}
 
-      <ErrorMessage message={error} />
-    </>
-  );
-}
+        <textarea
+          ref={ref}
+          disabled={disabled}
+          className={`
+            w-full rounded-lg border px-4 py-3 outline-none transition
+
+            ${
+              disabled
+                ? "cursor-not-allowed bg-slate-100 text-slate-500"
+                : "bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+            }
+
+            ${
+              error
+                ? "border-red-500"
+                : "border-slate-300"
+            }
+
+            ${className}
+          `}
+          {...props}
+        />
+
+        <ErrorMessage message={error} />
+      </div>
+    );
+  }
+);
+
+TextArea.displayName = "TextArea";
+
+export default TextArea;

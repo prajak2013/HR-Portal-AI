@@ -1,33 +1,27 @@
-export type LeaveType =
-  | "Annual"
-  | "Sick"
-  | "Casual";
+export type LeaveType = | "Annual" | "Sick" | "Casual";
 
-export type LeaveStatus =
-  | "Pending"
-  | "Approved"
-  | "Rejected";
+export type LeaveStatus = | "Pending" | "Approved" | "Rejected";
 
 export interface LeaveRequest {
-  id: string;
+    id: string;
 
-  leaveType: LeaveType;
+    leaveType: LeaveType | string;
 
-  startDate: string;
+    startDate: string;
 
-  endDate: string;
+    endDate: string;
 
-  totalDays: number;
+    totalDays: number;
 
-  reason: string;
+    reason: string;
 
-  status: LeaveStatus;
+    status: LeaveStatus;
 }
 
 export interface LeaveBalance {
-  annual: number;
+    annual: number;
 
-  sick: number;
+    sick: number;
 
-  casual: number;
+    casual: number;
 }

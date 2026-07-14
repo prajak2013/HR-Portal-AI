@@ -3,12 +3,18 @@ import type { InputHTMLAttributes } from "react";
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
+  label?: string;
 }
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-  ({ error, className = "", disabled, ...props }, ref) => {
+  ({ error, label, className = "", disabled, ...props }, ref) => {
     return (
       <div className="w-full">
+        {label && (
+          <label className="text-sm font-medium text-slate-700">
+            {label}
+          </label>
+        )}
         <input
           ref={ref}
           disabled={disabled}

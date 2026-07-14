@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import EmergencyContact from "./EmergencyContact";
-import SaveButton from "./SaveButton";
+import SaveButton from "../../../components/common/form/SaveButton";
 
 
 import profileService from "../services/profile.service";

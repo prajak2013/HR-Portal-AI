@@ -10,12 +10,18 @@ interface SelectInputProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   options: Option[];
   error?: string;
+  label?: string;
 }
 
 const SelectInput = forwardRef<HTMLSelectElement, SelectInputProps>(
-  ({ options, error, className = "", disabled, ...props }, ref) => {
+  ({ options, error, label, className = "", disabled, ...props }, ref) => {
     return (
       <div className="w-full">
+        {label && (
+          <label className="text-sm font-medium text-slate-700">
+            {label}
+          </label>
+        )}
         <select
           ref={ref}
           disabled={disabled}
