@@ -1,5 +1,5 @@
-const Chatbot = () => {
-  return <h1>Chatbot</h1>;
-};
+import Chatbot from "../features/chatbot/Chatbot";
 
-export default Chatbot;
+export default function ChatbotPage() {
+  return <Chatbot />;
+}
