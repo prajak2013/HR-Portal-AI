@@ -1,13 +1,20 @@
-export type ClaimStatus =
-  | "Approved"
-  | "Pending"
-  | "Rejected";
+// features/insurance/types.ts
 
-export interface InsuranceCoverage {
-  hospitalization: number;
-  opd: number;
-  dental: number;
-  vision: number;
+export interface InsurancePlan {
+  id: string;
+  provider: string;
+  planName: string;
+  policyNumber: string;
+  coverageAmount: string;
+  validFrom: string;
+  validTill: string;
+}
+
+export interface Coverage {
+  id: string;
+  title: string;
+  description: string;
+  limit: string;
 }
 
 export interface Dependent {
@@ -17,19 +24,8 @@ export interface Dependent {
   age: number;
 }
 
-export interface InsuranceClaim {
-  id: string;
-  date: string;
-  type: string;
-  amount: number;
-  status: ClaimStatus;
-}
-
-export interface InsuranceDetails {
-  provider: string;
-  policyNumber: string;
-  validTill: string;
-  coverage: InsuranceCoverage;
+export interface InsuranceData {
+  plan: InsurancePlan;
+  coverages: Coverage[];
   dependents: Dependent[];
-  claims: InsuranceClaim[];
 }
