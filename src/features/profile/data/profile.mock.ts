@@ -5,9 +5,9 @@ export const employeeProfile: EmployeeProfile = {
 
   employeeId: "EMP1001",
 
-  firstName: "Prajak",
+  firstName: "Prajakta",
 
-  lastName: "Patel",
+  lastName: "Kulkarni",
 
   email: "prajak@email.com",
 
@@ -20,7 +20,7 @@ export const employeeProfile: EmployeeProfile = {
   avatar: "",
 
   emergencyContact: {
-    name: "John Patel",
+    name: "John Doe",
     phone: "+91 9999999999",
     relationship: "Brother",
   },
